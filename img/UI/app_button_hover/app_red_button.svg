@@ -1,0 +1,10 @@
+<svg id="Close" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+  <g id="Close-2" data-name="Close">
+    <g id="Close-3" data-name="Close" fill="#ff6157" stroke="#e24640" stroke-miterlimit="10" stroke-width="0.5">
+      <circle cx="6" cy="6" r="6" stroke="none"/>
+      <circle cx="6" cy="6" r="5.75" fill="none"/>
+    </g>
+  </g>
+  <path id="Path_2" data-name="Path 2" d="M0,5,5,0" transform="translate(3.5 3.5)" fill="none" stroke="#730000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+  <path id="Path_3" data-name="Path 3" d="M5,5,0,0" transform="translate(3.5 3.5)" fill="none" stroke="#730000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+</svg>

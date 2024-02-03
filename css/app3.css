@@ -1,0 +1,8 @@
+#main_app3 {
+  height: 100%;
+  position: relative;
+}
+#main_app3 img {
+  position: absolute;
+  width: 50px;
+}

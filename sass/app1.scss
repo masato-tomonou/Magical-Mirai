@@ -1,0 +1,251 @@
+@import './key_frame';
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+#main_app1 {
+  background-image: url(../img/miku1.PNG);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  position: relative;
+  height: 100%;
+  overflow: scroll;
+
+  .none {
+    display: none;
+  }
+
+  &.active {
+    animation: change_bg 60s cubic-bezier(.09, 1.06, 0, 1) infinite;
+  }
+
+  /* オーバーレイ / Overlay */
+  #overlay {
+    user-select: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    background: #0006;
+    color: #fffc;
+    height: calc(100% - 52px);
+    margin-top: 52px;
+    border-radius: 0 0 10px 10px;
+    // z-index: 5;
+
+    &.disabled {
+      display: none;
+    }
+
+    &>p {
+      width: 100%;
+      font-size: 40px;
+      text-align: center;
+
+      &>span {
+        display: inline-block;
+        padding-right: 20px;
+        margin-right: 20px;
+        border-right: 1px solid #fff6;
+      }
+    }
+  }
+
+  /* ヘッダーと音源 */
+  #header,
+  #media {
+    /* ページ左に固定 */
+    position: fixed;
+    left: 0;
+
+    /* 背景色と文字色 */
+    background: #000c;
+    color: #fff;
+
+    z-index: 1;
+
+    /* ヘッダー */
+    &#header {
+      top: 70px;
+      padding: 10px 16px;
+      font-size: 10.5px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      background-color: #fbc4ffc0;
+      border-radius: 0 10px 10px 0;
+      transition: 1s;
+
+      /* 再生ボタン */
+      &>#control {
+        font-size: 21px;
+        padding-right: 10px;
+        border-right: 1px solid #fff9;
+
+        &.disabled {
+          display: none;
+        }
+
+        a {
+          color: #2baec5;
+          text-decoration: none;
+
+          &.disabled {
+            opacity: 0.3;
+          }
+
+          &:hover {
+            color: #20889a;
+          }
+        }
+      }
+
+      /* アーティストと楽曲の情報 */
+      &>#meta {
+        padding-left: 10px;
+        color: #3b3b3b;
+
+        span {
+          font-weight: normal;
+        }
+      }
+
+      &.active {
+        top: 52px;
+        border-radius: 0 0 10px 10px;
+        bottom: 0;
+        width: 100%;
+        height: calc(100% - 52px);
+        display: flex;
+        justify-content: center;
+
+        /* 再生ボタン */
+        &>#control {
+          font-size: 60px;
+          padding-right: 10px;
+          border-right: 1px solid #fff9;
+
+          #stop {
+            display: none;
+          }
+
+          &.disabled {
+            display: none;
+          }
+
+          a {
+            color: #2baec5;
+            text-decoration: none;
+
+            &.disabled {
+              opacity: 0.3;
+            }
+
+            &:hover {
+              color: #20889a;
+            }
+          }
+        }
+
+        /* アーティストと楽曲の情報 */
+        &>#meta {
+          font-size: 20px;
+          padding-left: 10px;
+          color: #3b3b3b;
+
+          span {
+            font-weight: normal;
+          }
+        }
+      }
+    }
+
+    /* 音源 */
+    &#media {
+      display: none;
+      /* 下寄せ */
+      bottom: 10px;
+
+      &.disabled>.textalive-media-wrapper {
+        width: 0;
+        height: 0;
+      }
+    }
+  }
+
+  #lyrics {
+    z-index: 0;
+    padding: 3em 0 5em 0;
+    margin: 0 20px;
+    line-height: 2em;
+    font-size: 36px;
+    font-family: 'DotGothic16', sans-serif;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 3px rgb(121, 121, 121);
+    user-select: none;
+    cursor: pointer;
+    position: absolute;
+
+    /* 歌詞をちょっと回転させる / Rotate text */
+    transform: rotateX(10deg) rotateY(-10deg);
+
+    #text {
+      border-radius: 5px;
+
+      &>div {
+        /* 文字ごとに改行しない / No line-break per char */
+        display: inline-block;
+
+        &>div {
+          animation: showLyrics 0.5s;
+        }
+      }
+
+      /**
+      * 名詞などを強調表示する
+      * Emphasize nouns
+      */
+      .noun {
+        color: rgb(101, 255, 70);
+        font-size: 42px;
+      }
+
+      /**
+      * フレーズ終わりで右にマージンを空けて読みやすくする
+      * Add right margin to the last char in phrases
+      */
+      .lastChar {
+        margin-right: 40px;
+      }
+
+      .firstCharInEnglishWord {
+        margin-left: 20px;
+      }
+
+      .lastCharInEnglishWord {
+        margin-right: 20px;
+      }
+
+      .lastCharInEnglishWord+.firstCharInEnglishWord {
+        margin-left: 0;
+      }
+    }
+  }
+
+  #seekbar {
+    position: fixed;
+    top: 52px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: rgba(255 255 255 / 40%);
+
+    &>div {
+      width: 0;
+      height: 100%;
+      background: rgba(255 255 255 / 80%);
+    }
+  }
+}

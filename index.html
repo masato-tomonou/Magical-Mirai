@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OS バージョン3.9</title>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="css/destyle.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/regular.min.css">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+  <script src="https://unpkg.com/textalive-app-api/dist/index.js" defer></script>
+  <script src="./js/script.js" defer></script>
+  <script src="./js/move.js" defer></script>
+  <script src="./js/modal.js" defer></script>
+  <script src="./js/ajax.js" defer></script>
+  <script src="./js/z_index.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <!-- Top ber -->
+    <section class="top_ber">
+      <!-- Top ber Left -->
+      <div id="top_ber_left">
+        <div><img src="img/UI/top_Apple_logo.png" alt="UI"></div>
+        <div>Finder</div>
+        <div>ファイル</div>
+        <div>編集</div>
+        <div>表示</div>
+        <div>移動</div>
+        <div>ウィンドウ</div>
+        <div>ヘルプ</div>
+      </div>
+      <!-- Top ber Right -->
+      <div id="top_ber_right">
+        <div><img src="img/UI/top_lang.svg" alt="UI"></div>
+        <div><img src="img/UI/top_wifi.svg" alt="UI"></div>
+        <div><img src="img/UI/top_search.svg" alt="UI"></div>
+        <div><img src="img/UI/top_controll.svg" alt="UI"></div>
+        <div><img src="img/UI/top_siri.svg" alt="UI" id="siri"></div>
+        <div id="top_ber_day">3月9日(水) 3:09</div>
+      </div>
+    </section>
+    <!-- Desktop -->
+    <section class="desktop" id="desktop">
+      <div id="app_icon_App1" onclick="App_ajax('app1', 'App1_contents')" onmousedown="z_index('App1')">
+        <img src="img/UI/app_icon/app1.png" alt="Safari">
+        <p>Loading Memories</p>
+      </div>
+      <div id="app_icon_App2" onmousedown="z_index('App2')">
+        <img src="img/UI/app_icon/app2.png" alt="Safari">
+        <p>公式サイト</p>
+      </div>
+      <div id="app_icon_App3" onclick="App_ajax('app3', 'App3_contents')" onmousedown="z_index('App3')">
+        <img src="img/UI/app_icon/app3.png" alt="Safari">
+        <p>増殖ミク</p>
+      </div>
+      <!-- <div id="app_icon_App" onclick="App_send_menu()" onmousedown="z_index('App')">
+        <img src="img/UI/app_icon/app.svg" alt="App">
+        <p>画像登録</p>
+      </div> -->
+      <!-- App -->
+      <div id="App1" class="hide" onmousedown="z_index('App1')">
+        <div id="App1_top_ber" class="drag-and-drop">
+          <ul>
+            <li id="App1_red_button" class="red_b"><img src="img/UI/app_red_button.svg" alt="close"></li>
+            <li id="App1_yellow_button"><img src="img/UI/app_yellow_button.svg" alt="Min"></li>
+            <li id="App1_green_button"><img src="img/UI/app_green_button.svg" alt="Max"></li>
+          </ul>
+        </div>
+        <div target="App_iframe" id="App1_contents" class="contents"></div>
+      </div>
+      <div id="App2" class="hide" onmousedown="z_index('App2')">
+        <div id="App2_top_ber" class="drag-and-drop">
+          <ul>
+            <li id="App2_red_button" class="red_b"><img src="img/UI/app_red_button.svg" alt="close"></li>
+            <li id="App2_yellow_button"><img src="img/UI/app_yellow_button.svg" alt="Min"></li>
+            <li id="App2_green_button"><img src="img/UI/app_green_button.svg" alt="Max"></li>
+          </ul>
+        </div>
+        <iframe src="https://magicalmirai.com/10th/" frameborder="0" id="App2_contents" class="contents"></iframe>
+      </div>
+      <div id="App3" class="hide" onmousedown="z_index('App3')">
+        <div id="App3_top_ber" class="drag-and-drop">
+          <ul>
+            <li id="App3_red_button" class="red_b"><img src="img/UI/app_red_button.svg" alt="close"></li>
+            <li id="App3_yellow_button"><img src="img/UI/app_yellow_button.svg" alt="Min"></li>
+            <li id="App3_green_button"><img src="img/UI/app_green_button.svg" alt="Max"></li>
+          </ul>
+        </div>
+        <div target="App_iframe" id="App3_contents" class="contents"></div>
+      </div>
+    </section>
+  </main>
+  <iframe id="App_iframe" name="App_iframe" class="hide"></iframe>
+</body>
+
+</html>

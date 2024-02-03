@@ -1,0 +1,9 @@
+<svg id="Minimize" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+  <g id="Minimize-2" data-name="Minimize">
+    <g id="Minimize-3" data-name="Minimize" fill="#ffc12f" stroke="#dfa023" stroke-miterlimit="10" stroke-width="0.5">
+      <circle cx="6" cy="6" r="6" stroke="none"/>
+      <circle cx="6" cy="6" r="5.75" fill="none"/>
+    </g>
+  </g>
+  <path id="Path_4" data-name="Path 4" d="M0,.5H6" transform="translate(3 5.5)" fill="none" stroke="#995600" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+</svg>

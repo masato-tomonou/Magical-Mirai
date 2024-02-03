@@ -1,0 +1,143 @@
+section.top_ber {
+  padding: 2px 5px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1254901961);
+  z-index: 1;
+}
+section.top_ber #top_ber_left,
+section.top_ber #top_ber_right {
+  display: flex;
+}
+section.top_ber #top_ber_left > div,
+section.top_ber #top_ber_right > div {
+  display: flex;
+  align-items: center;
+  padding: 0 7px;
+  font-size: 0.8rem;
+}
+section.top_ber #top_ber_left > div img,
+section.top_ber #top_ber_right > div img {
+  width: 0.8rem;
+}
+section.top_ber #top_ber_left > div img:not(#siri),
+section.top_ber #top_ber_right > div img:not(#siri) {
+  filter: invert(88%) sepia(61%) saturate(0%) hue-rotate(229deg) brightness(107%) contrast(101%);
+}
+section.top_ber #top_ber_left > div:first-of-type,
+section.top_ber #top_ber_right > div:first-of-type {
+  margin-left: 0;
+}
+
+section.desktop {
+  position: relative;
+  height: 100vh;
+  background-color: #d1f6ff;
+}
+section.desktop #app_icon_App1,
+section.desktop #app_icon_App2,
+section.desktop #app_icon_App3 {
+  position: absolute;
+  right: 20px;
+  top: 40px;
+  border-radius: 10px;
+  text-align: center;
+}
+section.desktop #app_icon_App1#app_icon_App2,
+section.desktop #app_icon_App2#app_icon_App2,
+section.desktop #app_icon_App3#app_icon_App2 {
+  top: 140px;
+}
+section.desktop #app_icon_App1#app_icon_App3,
+section.desktop #app_icon_App2#app_icon_App3,
+section.desktop #app_icon_App3#app_icon_App3 {
+  top: 230px;
+}
+section.desktop #app_icon_App1 img,
+section.desktop #app_icon_App2 img,
+section.desktop #app_icon_App3 img {
+  border-radius: 10px;
+  width: 60px;
+}
+section.desktop #app_icon_App1 p,
+section.desktop #app_icon_App2 p,
+section.desktop #app_icon_App3 p {
+  width: 80px;
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  color: #2a2a2a;
+}
+section.desktop #App1,
+section.desktop #App2,
+section.desktop #App3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+section.desktop #App1 > #App1_top_ber, section.desktop #App1 > #App2_top_ber, section.desktop #App1 > #App3_top_ber,
+section.desktop #App2 > #App1_top_ber,
+section.desktop #App2 > #App2_top_ber,
+section.desktop #App2 > #App3_top_ber,
+section.desktop #App3 > #App1_top_ber,
+section.desktop #App3 > #App2_top_ber,
+section.desktop #App3 > #App3_top_ber {
+  border-radius: 15px 15px 0 0;
+  padding: 20px;
+  background-color: #f5f5f5;
+  display: flex;
+}
+section.desktop #App1 > #App1_top_ber ul, section.desktop #App1 > #App2_top_ber ul, section.desktop #App1 > #App3_top_ber ul,
+section.desktop #App2 > #App1_top_ber ul,
+section.desktop #App2 > #App2_top_ber ul,
+section.desktop #App2 > #App3_top_ber ul,
+section.desktop #App3 > #App1_top_ber ul,
+section.desktop #App3 > #App2_top_ber ul,
+section.desktop #App3 > #App3_top_ber ul {
+  display: flex;
+}
+section.desktop #App1 > #App1_top_ber ul li, section.desktop #App1 > #App2_top_ber ul li, section.desktop #App1 > #App3_top_ber ul li,
+section.desktop #App2 > #App1_top_ber ul li,
+section.desktop #App2 > #App2_top_ber ul li,
+section.desktop #App2 > #App3_top_ber ul li,
+section.desktop #App3 > #App1_top_ber ul li,
+section.desktop #App3 > #App2_top_ber ul li,
+section.desktop #App3 > #App3_top_ber ul li {
+  margin-left: 7px;
+  display: flex;
+  align-items: center;
+}
+section.desktop #App1 > #App1_top_ber ul li:first-of-type, section.desktop #App1 > #App2_top_ber ul li:first-of-type, section.desktop #App1 > #App3_top_ber ul li:first-of-type,
+section.desktop #App2 > #App1_top_ber ul li:first-of-type,
+section.desktop #App2 > #App2_top_ber ul li:first-of-type,
+section.desktop #App2 > #App3_top_ber ul li:first-of-type,
+section.desktop #App3 > #App1_top_ber ul li:first-of-type,
+section.desktop #App3 > #App2_top_ber ul li:first-of-type,
+section.desktop #App3 > #App3_top_ber ul li:first-of-type {
+  margin-left: 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+body .hide {
+  display: none;
+}
+body .contents {
+  width: 60rem;
+  height: 40rem;
+  border-radius: 0 0 10px 10px;
+  overflow: scroll;
+}

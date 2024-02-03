@@ -1,0 +1,379 @@
+@charset "UTF-8";
+/**
+ * ビート情報が取れるようになったらビートバーを表示
+ * Show beat bar when beat information becomes available
+ */
+@import url("https://fonts.googleapis.com/css2?family=DotGothic16&display=swap");
+@-webkit-keyframes activateBeatBar {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+@keyframes activateBeatBar {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+/**
+ * ビート毎に右に広げてフェードアウト
+ * Make beat bar span to the right and then fade out
+ */
+@-webkit-keyframes showBeatBar {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  50% {
+    width: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 0;
+  }
+}
+@keyframes showBeatBar {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  50% {
+    width: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 0;
+  }
+}
+/**
+ * 歌詞が右からせり出してくる
+ * Make lyrics text appear from the bottom
+ */
+@-webkit-keyframes showLyrics {
+  0% {
+    transform: translate3d(100%, 0, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+@keyframes showLyrics {
+  0% {
+    transform: translate3d(100%, 0, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+/**
+ * 背景の画像が変わる
+ */
+@-webkit-keyframes change_bg {
+  0% {
+    background-image: url(../img/miku1.PNG);
+  }
+  15% {
+    background-image: url(../img/miku1.PNG);
+  }
+  30% {
+    background-image: url(../img/miku2.PNG);
+  }
+  45% {
+    background-image: url(../img/miku3.PNG);
+  }
+  60% {
+    background-image: url(../img/miku4.PNG);
+  }
+  75% {
+    background-image: url(../img/miku5.JPG);
+  }
+  100% {
+    background-image: url(../img/miku6.JPG);
+  }
+}
+@keyframes change_bg {
+  0% {
+    background-image: url(../img/miku1.PNG);
+  }
+  15% {
+    background-image: url(../img/miku1.PNG);
+  }
+  30% {
+    background-image: url(../img/miku2.PNG);
+  }
+  45% {
+    background-image: url(../img/miku3.PNG);
+  }
+  60% {
+    background-image: url(../img/miku4.PNG);
+  }
+  75% {
+    background-image: url(../img/miku5.JPG);
+  }
+  100% {
+    background-image: url(../img/miku6.JPG);
+  }
+}
+#main_app1 {
+  background-image: url(../img/miku1.PNG);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  position: relative;
+  height: 100%;
+  overflow: scroll;
+  /* オーバーレイ / Overlay */
+  /* ヘッダーと音源 */
+}
+#main_app1 .none {
+  display: none;
+}
+#main_app1.active {
+  -webkit-animation: change_bg 60s cubic-bezier(0.09, 1.06, 0, 1) infinite;
+          animation: change_bg 60s cubic-bezier(0.09, 1.06, 0, 1) infinite;
+}
+#main_app1 #overlay {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.8);
+  height: calc(100% - 52px);
+  margin-top: 52px;
+  border-radius: 0 0 10px 10px;
+}
+#main_app1 #overlay.disabled {
+  display: none;
+}
+#main_app1 #overlay > p {
+  width: 100%;
+  font-size: 40px;
+  text-align: center;
+}
+#main_app1 #overlay > p > span {
+  display: inline-block;
+  padding-right: 20px;
+  margin-right: 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+}
+#main_app1 #header,
+#main_app1 #media {
+  /* ページ左に固定 */
+  position: fixed;
+  left: 0;
+  /* 背景色と文字色 */
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  z-index: 1;
+  /* ヘッダー */
+  /* 音源 */
+}
+#main_app1 #header#header,
+#main_app1 #media#header {
+  top: 70px;
+  padding: 10px 16px;
+  font-size: 10.5px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  background-color: rgba(251, 196, 255, 0.7529411765);
+  border-radius: 0 10px 10px 0;
+  transition: 1s;
+  /* 再生ボタン */
+  /* アーティストと楽曲の情報 */
+}
+#main_app1 #header#header > #control,
+#main_app1 #media#header > #control {
+  font-size: 21px;
+  padding-right: 10px;
+  border-right: 1px solid rgba(255, 255, 255, 0.6);
+}
+#main_app1 #header#header > #control.disabled,
+#main_app1 #media#header > #control.disabled {
+  display: none;
+}
+#main_app1 #header#header > #control a,
+#main_app1 #media#header > #control a {
+  color: #2baec5;
+  text-decoration: none;
+}
+#main_app1 #header#header > #control a.disabled,
+#main_app1 #media#header > #control a.disabled {
+  opacity: 0.3;
+}
+#main_app1 #header#header > #control a:hover,
+#main_app1 #media#header > #control a:hover {
+  color: #20889a;
+}
+#main_app1 #header#header > #meta,
+#main_app1 #media#header > #meta {
+  padding-left: 10px;
+  color: #3b3b3b;
+}
+#main_app1 #header#header > #meta span,
+#main_app1 #media#header > #meta span {
+  font-weight: normal;
+}
+#main_app1 #header#header.active,
+#main_app1 #media#header.active {
+  top: 52px;
+  border-radius: 0 0 10px 10px;
+  bottom: 0;
+  width: 100%;
+  height: calc(100% - 52px);
+  display: flex;
+  justify-content: center;
+  /* 再生ボタン */
+  /* アーティストと楽曲の情報 */
+}
+#main_app1 #header#header.active > #control,
+#main_app1 #media#header.active > #control {
+  font-size: 60px;
+  padding-right: 10px;
+  border-right: 1px solid rgba(255, 255, 255, 0.6);
+}
+#main_app1 #header#header.active > #control #stop,
+#main_app1 #media#header.active > #control #stop {
+  display: none;
+}
+#main_app1 #header#header.active > #control.disabled,
+#main_app1 #media#header.active > #control.disabled {
+  display: none;
+}
+#main_app1 #header#header.active > #control a,
+#main_app1 #media#header.active > #control a {
+  color: #2baec5;
+  text-decoration: none;
+}
+#main_app1 #header#header.active > #control a.disabled,
+#main_app1 #media#header.active > #control a.disabled {
+  opacity: 0.3;
+}
+#main_app1 #header#header.active > #control a:hover,
+#main_app1 #media#header.active > #control a:hover {
+  color: #20889a;
+}
+#main_app1 #header#header.active > #meta,
+#main_app1 #media#header.active > #meta {
+  font-size: 20px;
+  padding-left: 10px;
+  color: #3b3b3b;
+}
+#main_app1 #header#header.active > #meta span,
+#main_app1 #media#header.active > #meta span {
+  font-weight: normal;
+}
+#main_app1 #header#media,
+#main_app1 #media#media {
+  display: none;
+  /* 下寄せ */
+  bottom: 10px;
+}
+#main_app1 #header#media.disabled > .textalive-media-wrapper,
+#main_app1 #media#media.disabled > .textalive-media-wrapper {
+  width: 0;
+  height: 0;
+}
+#main_app1 #lyrics {
+  z-index: 0;
+  padding: 3em 0 5em 0;
+  margin: 0 20px;
+  line-height: 2em;
+  font-size: 36px;
+  font-family: "DotGothic16", sans-serif;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 3px rgb(121, 121, 121);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  position: absolute;
+  /* 歌詞をちょっと回転させる / Rotate text */
+  transform: rotateX(10deg) rotateY(-10deg);
+  /* ビートバー / Beat bar */
+}
+#main_app1 #lyrics #bar {
+  opacity: 0;
+  height: 3px;
+  background: rgb(255, 255, 255);
+}
+#main_app1 #lyrics #bar.active {
+  -webkit-animation: activateBeatBar 0.3s;
+          animation: activateBeatBar 0.3s;
+}
+#main_app1 #lyrics #bar.beat {
+  -webkit-animation: showBeatBar 0.5s;
+          animation: showBeatBar 0.5s;
+}
+#main_app1 #lyrics #text {
+  border-radius: 5px;
+  background-color: rgba(112, 255, 255, 0.585);
+  opacity: 0.8;
+  /**
+  * 名詞などを強調表示する
+  * Emphasize nouns
+  */
+  /**
+  * フレーズ終わりで右にマージンを空けて読みやすくする
+  * Add right margin to the last char in phrases
+  */
+}
+#main_app1 #lyrics #text > div {
+  /* 文字ごとに改行しない / No line-break per char */
+  display: inline-block;
+}
+#main_app1 #lyrics #text > div > div {
+  -webkit-animation: showLyrics 0.5s;
+          animation: showLyrics 0.5s;
+}
+#main_app1 #lyrics #text .noun {
+  color: rgb(101, 255, 70);
+  font-size: 42px;
+}
+#main_app1 #lyrics #text .lastChar {
+  margin-right: 40px;
+}
+#main_app1 #lyrics #text .firstCharInEnglishWord {
+  margin-left: 20px;
+}
+#main_app1 #lyrics #text .lastCharInEnglishWord {
+  margin-right: 20px;
+}
+#main_app1 #lyrics #text .lastCharInEnglishWord + .firstCharInEnglishWord {
+  margin-left: 0;
+}
+#main_app1 #seekbar {
+  position: fixed;
+  top: 52px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.4);
+}
+#main_app1 #seekbar > div {
+  width: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+}

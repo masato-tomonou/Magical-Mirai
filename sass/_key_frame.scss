@@ -1,0 +1,44 @@
+/**
+ * 歌詞が右からせり出してくる
+ * Make lyrics text appear from the bottom
+ */
+@keyframes showLyrics {
+  0% {
+    transform: translate3d(0, 50%, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 50%, 0);
+    opacity: 0;
+  }
+}
+
+/**
+ * 背景の画像が変わる
+ */
+@keyframes change_bg {
+  0% {
+    background-image: url(../img/miku1.PNG);
+  }
+  15% {
+    background-image: url(../img/miku1.PNG);
+  }
+  30% {
+    background-image: url(../img/miku2.PNG);
+  }
+  45% {
+    background-image: url(../img/miku3.PNG);
+  }
+  60% {
+    background-image: url(../img/miku4.PNG);
+  }
+  75% {
+    background-image: url(../img/miku5.JPG);
+  }
+  100% {
+    background-image: url(../img/miku6.JPG);
+  }
+}

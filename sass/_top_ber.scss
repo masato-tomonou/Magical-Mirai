@@ -1,0 +1,36 @@
+section.top_ber {
+  padding: 2px 5px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #00000020;
+  z-index: 1;
+
+  #top_ber_left,
+  #top_ber_right {
+    display: flex;
+
+    
+    &>div {
+      display: flex;
+      align-items: center;
+      padding: 0 7px;
+      font-size: 0.8rem;
+
+      img {
+        width: 0.8rem;
+      }
+      
+      img:not(#siri) {
+        filter: invert(88%) sepia(61%) saturate(0%) hue-rotate(229deg) brightness(107%) contrast(101%);
+      }
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+    }
+  }
+}
